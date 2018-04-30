@@ -52,3 +52,4 @@ Pure CPU demo command:
 cd ./demo
 KERAS_BACKEND=tensorflow CUDA_VISIBLE_DEVICES='' python TYY_demo_mtcnn.py TGOP.mp4
 ```
++ Note: You may choose different pre-trained model. However, the morph2 dataset is much more smaller than IMDB and WIKI, the pre-trained model from morph2 may perform badly on in-the-wild image. Therefore, IMDB or WIKI pre-trained models are recommend for in-the-wild image or video demo.
