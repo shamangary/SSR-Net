@@ -19,7 +19,7 @@ This paper presents a novel CNN model called Soft Stagewise Regression Network (
 ```
 pip install mtcnn
 ```
-+ MobileNet
++ MobileNet (already in the codes)
 https://github.com/fchollet/keras/blob/master/keras/applications/mobilenet.py
 + DenseNet (already in the codes)
 https://github.com/titu1994/DenseNet
