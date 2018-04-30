@@ -27,6 +27,10 @@ There are three different section of this project.
 We will go through the details in the following sections.
 
 ### 1.Data pre-processing
++ Download IMDB-WIKI dataset from https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/.
++ Unzip it under './data'
++ Morph2 dataset requires application form https://www.faceaginggroup.com/morph/
++ Run the following codes for dataset pre-processing.
 ```
 python TYY_IMDBWIKI_create_db.py --db imdb --output imdb.npz
 python TYY_IMDBWIKI_create_db.py --db wiki --output wiki.npz
