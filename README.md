@@ -1,10 +1,10 @@
 # SSR-Net
-[IJCAI18] SSR-Net: A Compact Soft Stagewise Regression Network for Age Estimation
+**[IJCAI18] SSR-Net: A Compact Soft Stagewise Regression Network for Age Estimation**
 + A real-time age estimation model with 0.32MB.
 
-Code Author: Tsun-Yi Yang
+**Code Author: Tsun-Yi Yang**
 
-Last update: 2018/04/30
+**Last update: 2018/04/30**
 
 <img src="https://github.com/shamangary/SSR-Net/blob/master/demo/TGOP_tvbs.png" height="240"/> <img src="https://github.com/shamangary/SSR-Net/blob/master/demo/the_flash_cast.png" height="240"/>
 
