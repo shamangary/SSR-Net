@@ -83,7 +83,7 @@ sh run_ssrnet.sh
 ```
 + Note that we provide several different hyper-parameters combination in this code. If you only want a single hyper-parameter set, please alter the command inside "run_ssrnet.sh".
 
-+ Plot the results
+**Plot the results:**
 For example, after the training of IMDB dataset, you want to plot the curve and the results.
 Copy "plot.sh", "ssrnet_plot.sh", and "plot_reg.py" into "./imdb_models".
 The following command should plot the results of the training process.
