@@ -37,7 +37,11 @@ https://github.com/fchollet/keras/blob/master/keras/applications/mobilenet.py
 https://github.com/titu1994/DenseNet
 + Face alignment (already in the codes)
 https://github.com/xyfeng/average_portrait
-
++ Others
+```
+conda install -c conda-forge moviepy
+conda install -c cogsci pygame
+```
 ## Codes
 
 There are three different section of this project.
