@@ -13,12 +13,20 @@ This paper presents a novel CNN model called Soft Stagewise Regression Network (
 + Ubuntu
 
 ## Dependencies
++ OpenCV
 + Dlib
 + MTCNN for demo
 ```
 pip install mtcnn
 ```
-## Code
++ MobileNet
+https://github.com/fchollet/keras/blob/master/keras/applications/mobilenet.py
++ DenseNet(already in the codes)
+https://github.com/titu1994/DenseNet
++ Face alignment (already in the codes)
+https://github.com/xyfeng/average_portrait
+
+## Codes
 
 There are three different section of this project.
 1.Data pre-processing
@@ -40,10 +48,12 @@ python TYY_MORPH_create_db.py --output morph_db_align.npz
 ### 2.Training and testing
 For MobileNet and DenseNet:
 ```
+cd ./training_and_testing
 sh run_all.sh
 ```
 For SSR-Net:
 ```
+cd ./training_and_testing
 sh run_ssrnet.sh
 ```
 ### 3.Video demo section
