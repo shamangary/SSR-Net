@@ -46,7 +46,10 @@ There are three different section of this project.
 3.Video demo section
 We will go through the details in the following sections.
 
-### 1.Data pre-processing
+This repository is for IMDB, WIKI, and Morph2 datasets. Megaface-Asian is done by **Yi-Husan Huang**. Another link for this will be updated soon.
+
+
+### 1. Data pre-processing
 + Download IMDB-WIKI dataset from https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/.
 + Unzip it under './data'
 + Morph2 dataset requires application form https://www.faceaginggroup.com/morph/
@@ -57,7 +60,8 @@ python TYY_IMDBWIKI_create_db.py --db imdb --output imdb.npz
 python TYY_IMDBWIKI_create_db.py --db wiki --output wiki.npz
 python TYY_MORPH_create_db.py --output morph_db_align.npz
 ```
-### 2.Training and testing
+
+### 2. Training and testing
 For MobileNet and DenseNet:
 ```
 cd ./training_and_testing
@@ -68,7 +72,7 @@ For SSR-Net:
 cd ./training_and_testing
 sh run_ssrnet.sh
 ```
-### 3.Video demo section
+### 3. Video demo section
 Pure CPU demo command:
 ```
 cd ./demo
