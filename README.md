@@ -56,9 +56,9 @@ This repository is for IMDB, WIKI, and Morph2 datasets. Megaface-Asian is done b
 
 
 ### 1. Data pre-processing
-+ Download IMDB-WIKI dataset from https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/.
-+ Unzip it under './data'
++ Download IMDB-WIKI dataset (face only) from https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/.
 + Morph2 dataset requires application form https://www.faceaginggroup.com/morph/
++ Unzip them under './data'
 + Run the following codes for dataset pre-processing.
 ```
 cd ./data
