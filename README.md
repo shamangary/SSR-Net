@@ -19,6 +19,30 @@ This paper presents a novel CNN model called Soft Stagewise Regression Network (
 pip install mtcnn
 ```
 ## Code
-Coming soon...
 
+There are three different section of this project.
+1.Data pre-processing
+2.Training and testing
+3.Video demo section
+We will go through the details in the following sections.
 
+### 1.Data pre-processing
+```
+python TYY_IMDBWIKI_create_db.py --db imdb --output imdb.npz
+python TYY_IMDBWIKI_create_db.py --db wiki --output wiki.npz
+python TYY_MORPH_create_db.py --output morph_db_align.npz
+```
+### 2.Training and testing
+For MobileNet and DenseNet:
+```
+sh run_all.sh
+```
+For SSR-Net:
+```
+sh run_ssrnet.sh
+```
+### 3.Video demo section
+Pure CPU demo command:
+```
+KERAS_BACKEND=tensorflow CUDA_VISIBLE_DEVICES='' python TYY_demo_mtcnn.py TGOP.mp4
+```
