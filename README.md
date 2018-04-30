@@ -32,6 +32,7 @@ We will go through the details in the following sections.
 + Morph2 dataset requires application form https://www.faceaginggroup.com/morph/
 + Run the following codes for dataset pre-processing.
 ```
+cd ./data
 python TYY_IMDBWIKI_create_db.py --db imdb --output imdb.npz
 python TYY_IMDBWIKI_create_db.py --db wiki --output wiki.npz
 python TYY_MORPH_create_db.py --output morph_db_align.npz
@@ -48,5 +49,6 @@ sh run_ssrnet.sh
 ### 3.Video demo section
 Pure CPU demo command:
 ```
+cd ./demo
 KERAS_BACKEND=tensorflow CUDA_VISIBLE_DEVICES='' python TYY_demo_mtcnn.py TGOP.mp4
 ```
