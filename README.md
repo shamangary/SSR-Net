@@ -62,6 +62,11 @@ python TYY_MORPH_create_db.py --output morph_db_align.npz
 ```
 
 ### 2. Training and testing
+
+<img src="https://github.com/shamangary/SSR-Net/blob/master/merge_val_morph2.png" height="300"/>
+
+The experiments are done by randomly choosing 80% of the dataset as training and 20% of the dataset as validation(or testing). The details of the setting in each dataset is in the paper.
+
 For MobileNet and DenseNet:
 ```
 cd ./training_and_testing
