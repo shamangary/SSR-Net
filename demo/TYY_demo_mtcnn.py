@@ -20,7 +20,7 @@ def draw_label(image, point, label, font=cv2.FONT_HERSHEY_SIMPLEX,
 def main():
     
     weight_file = "../pre-trained/wiki/ssrnet_3_3_3_64_1.0_1.0/ssrnet_3_3_3_64_1.0_1.0.h5"
-
+    os.mkdir('./img')
     # for face detection
     # detector = dlib.get_frontal_face_detector()
     detector = MTCNN()
