@@ -6,7 +6,7 @@
 
 **Last update: 2018/05/01**
 
-![Alt Text](https://media.giphy.com/media/3d5NhLuPl2BSETxbq5/giphy.gif)
+<img src="https://media.giphy.com/media/ygBDe4FIU4Cybbfh2N/giphy.gif" height="240"/> <img src="https://media.giphy.com/media/bZvHMOp2hBsusr96fa/giphy.gif" height="240"/> 
 
 <img src="https://github.com/shamangary/SSR-Net/blob/master/demo/TGOP_tvbs.png" height="240"/> <img src="https://github.com/shamangary/SSR-Net/blob/master/demo/the_flash_cast.png" height="240"/>
 
