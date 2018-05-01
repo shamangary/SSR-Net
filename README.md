@@ -4,7 +4,7 @@
 
 **Code Author: Tsun-Yi Yang**
 
-**Last update: 2018/04/30**
+**Last update: 2018/05/01**
 
 <img src="https://github.com/shamangary/SSR-Net/blob/master/demo/TGOP_tvbs.png" height="240"/> <img src="https://github.com/shamangary/SSR-Net/blob/master/demo/the_flash_cast.png" height="240"/>
 
@@ -23,12 +23,13 @@ This paper presents a novel CNN model called Soft Stagewise Regression Network (
 
 ## Platform
 + Keras
++ Tensorflow
 + GTX-1080Ti
 + Ubuntu
 
 ## Dependencies
 + OpenCV
-+ Dlib
++ dlib
 + MTCNN for demo
 ```
 pip install mtcnn
@@ -100,6 +101,6 @@ Pure CPU demo command:
 cd ./demo
 KERAS_BACKEND=tensorflow CUDA_VISIBLE_DEVICES='' python TYY_demo_mtcnn.py TGOP.mp4
 ```
-+ Note: You may choose different pre-trained models. However, the morph2 dataset is under a well controlled enviroment and it is much more smaller than IMDB and WIKI, the pre-trained models from morph2 may perform badly on in-the-wild images. Therefore, IMDB or WIKI pre-trained models are recommended for in-the-wild images or video demo.
++ Note: You may choose different pre-trained models. However, the morph2 dataset is under a well controlled enviroment and it is much more smaller than IMDB and WIKI, the pre-trained models from morph2 may perform badly on the in-the-wild images. Therefore, IMDB or WIKI pre-trained models are recommended for in-the-wild images or video demo.
 
 + We use dlib detection and face alignment in the previous experimental section since the face data is well organized. However, dlib cannot provide satisfactory face detection for in-the-wild video. Therefore we use mtcnn as the detection process in the demo section.
