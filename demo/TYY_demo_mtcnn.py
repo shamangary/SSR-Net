@@ -20,11 +20,14 @@ def draw_label(image, point, label, font=cv2.FONT_HERSHEY_SIMPLEX,
 def main():
     
     weight_file = "../pre-trained/wiki/ssrnet_3_3_3_64_1.0_1.0/ssrnet_3_3_3_64_1.0_1.0.h5"
-    os.mkdir('./img')
+
     # for face detection
     # detector = dlib.get_frontal_face_detector()
     detector = MTCNN()
-
+    try:
+        os.mkdir('./img')
+    except OSError:
+        pass
     # load model and weights
     img_size = 64
     stage_num = [3,3,3]
@@ -70,7 +73,6 @@ def main():
         if img_idx==1 or img_idx%skip_frame == 0:
             
             # detect faces using dlib detector
-            # detected = detector(input_img, 1)
             detected = detector.detect_faces(input_img)
             faces = np.empty((len(detected), img_size, img_size, 3))
 
