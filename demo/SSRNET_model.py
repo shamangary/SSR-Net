@@ -1,5 +1,3 @@
-# This code is imported from the following project: https://github.com/asmith26/wide_resnets_keras
-
 import logging
 import sys
 import numpy as np
