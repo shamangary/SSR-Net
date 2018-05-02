@@ -15,7 +15,7 @@
 ## Paper
 
 ### PDF
-coming soon...
+https://github.com/shamangary/SSR-Net/blob/master/ijcai18_ssrnet_pdfa.pdf
 
 ### Paper authors
 **[Tsun-Yi Yang](http://shamangary.logdown.com/), [Yi-Husan Huang](https://github.com/b02901145), [Yen-Yu Lin](https://www.citi.sinica.edu.tw/pages/yylin/index_zh.html), [Pi-Cheng Hsiu](https://www.citi.sinica.edu.tw/pages/pchsiu/index_en.html), and [Yung-Yu Chuang](https://www.csie.ntu.edu.tw/~cyy/)**
