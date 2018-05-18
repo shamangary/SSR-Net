@@ -105,7 +105,7 @@ def main():
             for i, d in enumerate(detected):
                 if d['confidence'] > 0.95:
                     x1,y1,w,h = d['box']
-                    label = "{}".format(int(predicted_ages[i][0]))
+                    label = "{}".format(int(predicted_ages[i]))
                     draw_label(input_img, (x1, y1), label)
             elapsed_time = timeit.default_timer()-start_time
             time_network = time_network + elapsed_time
@@ -144,7 +144,7 @@ def main():
             for i, d in enumerate(detected):
                 if d['confidence'] > 0.95:
                     x1,y1,w,h = d['box']
-                    label = "{}".format(int(predicted_ages[i][0]))
+                    label = "{}".format(int(predicted_ages[i]))
                     draw_label(input_img, (x1, y1), label)
             
             start_time = timeit.default_timer()
