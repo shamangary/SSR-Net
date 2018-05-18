@@ -48,6 +48,8 @@ https://github.com/xyfeng/average_portrait
 ```
 conda install -c conda-forge moviepy
 conda install -c cogsci pygame
+conda install -c conda-forge requests
+conda install -c conda-forge pytables
 ```
 ## Codes
 
