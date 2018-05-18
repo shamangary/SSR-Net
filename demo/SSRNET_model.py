@@ -150,15 +150,15 @@ class SSR_net:
 
             for i in range(0,s1):
                 a = a+(i+lambda_local*x[6][:,i])*x[0][:,i]
-            a = a/(s1*(1+lambda_d*x[3]))
+            a = a/(s1*(1+lambda_d*x[3][:,0]))
 
             for j in range(0,s2):
                 b = b+(j+lambda_local*x[7][:,j])*x[1][:,j]
-            b = b/(s1*(1+lambda_d*x[3]))/(s2*(1+lambda_d*x[4]))
+            b = b/(s1*(1+lambda_d*x[3][:,0]))/(s2*(1+lambda_d*x[4][:,0]))
 
             for k in range(0,s3):
                 c = c+(k+lambda_local*x[8][:,k])*x[2][:,k]
-            c = c/(s1*(1+lambda_d*x[3]))/(s2*(1+lambda_d*x[4]))/(s3*(1+lambda_d*x[5]))
+            c = c/(s1*(1+lambda_d*x[3][:,0]))/(s2*(1+lambda_d*x[4][:,0]))/(s3*(1+lambda_d*x[5][:,0]))
 
 
             a = (a+b+c)*V
