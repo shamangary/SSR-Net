@@ -32,6 +32,7 @@ This paper presents a novel CNN model called Soft Stagewise Regression Network (
 ## Dependencies
 + A guide for most dependencies. (in Chinese)
 http://shamangary.logdown.com/posts/3009851
++ Anaconda
 + OpenCV
 + dlib
 + MTCNN for demo
