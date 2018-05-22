@@ -2,8 +2,8 @@ import tensorflow as tf
 
 from keras.backend import tensorflow_backend as KTF
 from keras.backend.common import image_data_format
-from keras.backend.tensorflow_backend import _preprocess_conv2d_input
-from keras.backend.tensorflow_backend import _postprocess_conv2d_output
+#from keras.backend.tensorflow_backend import _preprocess_conv2d_input
+#from keras.backend.tensorflow_backend import _postprocess_conv2d_output
 
 py_all = all
 def _preprocess_conv2d_input(x, data_format):
