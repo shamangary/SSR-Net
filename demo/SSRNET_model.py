@@ -150,19 +150,22 @@ class SSR_net:
 
             for i in range(0,s1):
                 a = a+(i+lambda_local*x[6][:,i])*x[0][:,i]
-            a = a/(s1*(1+lambda_d*x[3][:,0]))
+            a = K.expand_dims(a,-1)
+            a = a/(s1*(1+lambda_d*x[3]))
 
             for j in range(0,s2):
                 b = b+(j+lambda_local*x[7][:,j])*x[1][:,j]
-            b = b/(s1*(1+lambda_d*x[3][:,0]))/(s2*(1+lambda_d*x[4][:,0]))
+            b = K.expand_dims(b,-1)
+            b = b/(s1*(1+lambda_d*x[3]))/(s2*(1+lambda_d*x[4]))
 
             for k in range(0,s3):
                 c = c+(k+lambda_local*x[8][:,k])*x[2][:,k]
-            c = c/(s1*(1+lambda_d*x[3][:,0]))/(s2*(1+lambda_d*x[4][:,0]))/(s3*(1+lambda_d*x[5][:,0]))
+            c = K.expand_dims(c,-1)
+            c = c/(s1*(1+lambda_d*x[3]))/(s2*(1+lambda_d*x[4]))/(s3*(1+lambda_d*x[5]))
 
 
-            a = (a+b+c)*V
-            return a
+            age = (a+b+c)*V
+            return age
         
         pred_a = Lambda(merge_age,arguments={'s1':self.stage_num[0],'s2':self.stage_num[1],'s3':self.stage_num[2],'lambda_local':self.lambda_local,'lambda_d':self.lambda_d},output_shape=(1,),name='pred_a')([pred_a_s1,pred_a_s2,pred_a_s3,delta_s1,delta_s2,delta_s3, local_s1, local_s2, local_s3])
 
