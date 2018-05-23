@@ -4,7 +4,7 @@
 
 **Code Author: Tsun-Yi Yang**
 
-**Last update: 2018/05/23 (minor bug fixed)**
+**Last update: 2018/05/23 (minor bug fixed, dim of the layer is imporved by K.expand_dims)**
 
 <img src="https://media.giphy.com/media/ygBDe4FIU4Cybbfh2N/giphy.gif" height="240"/> <img src="https://media.giphy.com/media/bZvHMOp2hBsusr96fa/giphy.gif" height="240"/> 
 
