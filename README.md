@@ -109,7 +109,20 @@ Pure CPU demo command:
 ```
 cd ./demo
 KERAS_BACKEND=tensorflow CUDA_VISIBLE_DEVICES='' python TYY_demo_mtcnn.py TGOP.mp4
+
+# Or you can use
+
+KERAS_BACKEND=tensorflow CUDA_VISIBLE_DEVICES='' python TYY_demo_mtcnn.py TGOP.mp4 '3'
 ```
 + Note: You may choose different pre-trained models. However, the morph2 dataset is under a well controlled enviroment and it is much more smaller than IMDB and WIKI, the pre-trained models from morph2 may perform ly on the in-the-wild images. Therefore, IMDB or WIKI pre-trained models are recommended for in-the-wild images or video demo.
 
 + We use dlib detection and face alignment in the previous experimental section since the face data is well organized. However, dlib cannot provide satisfactory face detection for in-the-wild video. Therefore we use mtcnn as the detection process in the demo section.
+
+### Real-time webcam demo
+
+Considering the face detection process (MTCNN or Dlib) is not fast enough for real-time demo. We show a real-time webcam version by using lbp face detector.
+
+```
+cd ./demo
+KERAS_BACKEND=tensorflow CUDA_VISIBLE_DEVICES='' python TYY_demo_ssrnet_lbp_webcam.py
+```
