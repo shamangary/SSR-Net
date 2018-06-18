@@ -103,7 +103,7 @@ def main():
     time_detection = 0
     time_network = 0
     time_plot = 0
-    skip_frame = 1 # every 5 frame do 1 detection and network forward propagation
+    skip_frame =  # every 5 frame do 1 detection and network forward propagation
     ad = 0.9
 
     while True:
