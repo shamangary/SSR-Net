@@ -16,7 +16,7 @@ def draw_label(image, point, label, font=cv2.FONT_HERSHEY_SIMPLEX,
     cv2.putText(image, label, point, font, font_scale, (255, 255, 255), thickness)
 
 def draw_results(detected,input_img,faces,ad,img_size,img_w,img_h,model,time_detection,time_network,time_plot):
-    start_time = timeit.default_timer()
+    
     #for i, d in enumerate(detected):
     for i, (x,y,w,h) in enumerate(detected):
         #x1, y1, x2, y2, w, h = d.left(), d.top(), d.right() + 1, d.bottom() + 1, d.width(), d.height()
@@ -35,8 +35,7 @@ def draw_results(detected,input_img,faces,ad,img_size,img_w,img_h,model,time_det
         cv2.rectangle(input_img, (x1, y1), (x2, y2), (255, 0, 0), 2)
         cv2.rectangle(input_img, (xw1, yw1), (xw2, yw2), (0, 0, 255), 2)
         faces[i,:,:,:] = cv2.resize(input_img[yw1:yw2 + 1, xw1:xw2 + 1, :], (img_size, img_size))
-    elapsed_time = timeit.default_timer()-start_time
-    time_detection = time_detection + elapsed_time
+    
     
     start_time = timeit.default_timer()
     if len(detected) > 0:
@@ -72,7 +71,7 @@ def draw_results(detected,input_img,faces,ad,img_size,img_w,img_h,model,time_det
     elapsed_time = timeit.default_timer()-start_time
     time_plot = time_plot + elapsed_time
 
-    return input_img,time_detection,time_network,time_plot
+    return input_img,time_network,time_plot
 
 def main():
     
@@ -120,20 +119,23 @@ def main():
             time_network = 0
             time_plot = 0
             
-            # detect faces using dlib detector
+            # detect faces using LBP detector
             gray_img = cv2.cvtColor(input_img,cv2.COLOR_BGR2GRAY)
+            start_time = timeit.default_timer()
             detected = face_cascade.detectMultiScale(gray_img, 1.1)
+            elapsed_time = timeit.default_timer()-start_time
+            time_detection = time_detection + elapsed_time
             faces = np.empty((len(detected), img_size, img_size, 3))
 
             
-            input_img,time_detection,time_network,time_plot = draw_results(detected,input_img,faces,ad,img_size,img_w,img_h,model,time_detection,time_network,time_plot)
+            input_img,time_network,time_plot = draw_results(detected,input_img,faces,ad,img_size,img_w,img_h,model,time_detection,time_network,time_plot)
             cv2.imwrite('img/'+str(img_idx)+'.png',input_img)
             
         else:
-            input_img,time_detection,time_network,time_plot = draw_results(detected,input_img,faces,ad,img_size,img_w,img_h,model,time_detection,time_network,time_plot)
+            input_img,time_network,time_plot = draw_results(detected,input_img,faces,ad,img_size,img_w,img_h,model,time_detection,time_network,time_plot)
         
         #Show the time cost (fps)
-        print('avefps_time_detection:',skip_frame/time_detection)
+        print('avefps_time_detection:',1/time_detection)
         print('avefps_time_network:',skip_frame/time_network)
         print('avefps_time_plot:',skip_frame/time_plot)
         print('===============================')

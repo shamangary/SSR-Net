@@ -73,10 +73,13 @@ def main():
         if img_idx==1 or img_idx%skip_frame == 0:
             
             # detect faces using dlib detector
+            start_time = timeit.default_timer()
             detected = detector.detect_faces(input_img)
+            elapsed_time = timeit.default_timer()-start_time
+            time_detection = time_detection + elapsed_time
             faces = np.empty((len(detected), img_size, img_size, 3))
 
-            start_time = timeit.default_timer()
+            
             for i, d in enumerate(detected):
                 print(i)
                 print(d['confidence'])
@@ -91,8 +94,7 @@ def main():
                     cv2.rectangle(input_img, (x1, y1), (x2, y2), (255, 0, 0), 2)
                     # cv2.rectangle(img, (xw1, yw1), (xw2, yw2), (255, 0, 0), 2)
                     faces[i,:,:,:] = cv2.resize(input_img[yw1:yw2 + 1, xw1:xw2 + 1, :], (img_size, img_size))
-            elapsed_time = timeit.default_timer()-start_time
-            time_detection = time_detection + elapsed_time
+            
             
             start_time = timeit.default_timer()
             if len(detected) > 0:
