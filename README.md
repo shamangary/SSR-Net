@@ -139,7 +139,7 @@ KERAS_BACKEND=tensorflow CUDA_VISIBLE_DEVICES='' python TYY_demo_ssrnet_lbp_webc
 
 ### 4. Extension
 
-### Real-time age+gender webcam demo
+### Training the gender model
 
 We can reformulate binary classification problem into regression problem, and SSR-Net can be used to predict the confidence.
 For example, we provide gender regression and demo in the code for the extension.
