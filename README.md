@@ -4,7 +4,7 @@
 
 **Code Author: Tsun-Yi Yang**
 
-**Last update: 2018/06/18 (Adding real-time webcam demo)**
+**Last update: 2018/06/21 (Adding megaface_asian pre-trained model.)**
 
 
 <img src="https://media.giphy.com/media/ygBDe4FIU4Cybbfh2N/giphy.gif" height="240"/> <img src="https://media.giphy.com/media/bZvHMOp2hBsusr96fa/giphy.gif" height="240"/> 
@@ -133,3 +133,4 @@ KERAS_BACKEND=tensorflow CUDA_VISIBLE_DEVICES='' python TYY_demo_ssrnet_lbp_webc
 ```
 + Note that the covered region of face detection is different when you use MTCNN, Dlib, or LBP. You should choose similiar size between the inference and the training.
 + Also, the pre-trained models are mainly for the evaluation of the datasets. They are not really for the real-world images. You should always retrain the model by your own dataset. In webcam demo, we found that morph2 pre-trained model actually perform better than wiki pre-trained model. The discussion will be included in our future work.
++ If you are Asian, you might want to use megaface_asian pre-trained model.
