@@ -69,7 +69,7 @@ There are three different section of this project.
 3.Video demo section
 We will go through the details in the following sections.
 
-This repository is for IMDB, WIKI, and Morph2 datasets. Megaage-Asian is done by **Yi-Husan Huang**. Another link for this will be updated soon.
+This repository is for IMDB, WIKI, and Morph2 datasets.
 
 
 ### 1. Data pre-processing
