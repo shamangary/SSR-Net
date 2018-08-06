@@ -2,10 +2,11 @@
 **[IJCAI18] SSR-Net: A Compact Soft Stagewise Regression Network for Age Estimation**
 + A real-time age estimation model with 0.32MB.
 + Gender regression is also added!
++ Megaage-Asian is provided in https://github.com/b02901145/SSR-Net_megaage-asian
 
 **Code Author: Tsun-Yi Yang**
 
-**Last update: 2018/06/21 (Adding megaface_asian pre-trained model. Gender training and demo are included.)**
+**Last update: 2018/08/06 (Adding megaage_asian training. Typo fixed.)**
 
 
 <img src="https://media.giphy.com/media/ygBDe4FIU4Cybbfh2N/giphy.gif" height="240"/> <img src="https://media.giphy.com/media/bZvHMOp2hBsusr96fa/giphy.gif" height="240"/> 
@@ -68,7 +69,7 @@ There are three different section of this project.
 3.Video demo section
 We will go through the details in the following sections.
 
-This repository is for IMDB, WIKI, and Morph2 datasets. Megaface-Asian is done by **Yi-Husan Huang**. Another link for this will be updated soon.
+This repository is for IMDB, WIKI, and Morph2 datasets. Megaage-Asian is done by **Yi-Husan Huang**. Another link for this will be updated soon.
 
 
 ### 1. Data pre-processing
@@ -134,7 +135,7 @@ KERAS_BACKEND=tensorflow CUDA_VISIBLE_DEVICES='' python TYY_demo_ssrnet_lbp_webc
 ```
 + Note that the covered region of face detection is different when you use MTCNN, Dlib, or LBP. You should choose similiar size between the inference and the training.
 + Also, the pre-trained models are mainly for the evaluation of the datasets. They are not really for the real-world images. You should always retrain the model by your own dataset. In webcam demo, we found that morph2 pre-trained model actually perform better than wiki pre-trained model. The discussion will be included in our future work.
-+ If you are Asian, you might want to use the megaface_asian pre-trained model.
++ If you are Asian, you might want to use the megaage_asian pre-trained model.
 + The Morph2 pre-trained model is good for webcam but the gender model is overfitted and not practical.
 
 ### 4. Extension
