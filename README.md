@@ -3,6 +3,7 @@
 + A real-time age estimation model with 0.32MB.
 + Gender regression is also added!
 + Megaage-Asian is provided in https://github.com/b02901145/SSR-Net_megaage-asian
++ Coreml model (0.17MB) is provided in https://github.com/shamangary/Keras-to-coreml-multiple-inputs-example
 
 **Code Author: Tsun-Yi Yang**
 
