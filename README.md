@@ -64,10 +64,10 @@ conda install -c conda-forge pytables
 ```
 ## Codes
 
-There are three different section of this project.
-1.Data pre-processing
-2.Training and testing
-3.Video demo section
+There are three different section of this project. 
+1. Data pre-processing
+2. Training and testing
+3. Video demo section
 We will go through the details in the following sections.
 
 This repository is for IMDB, WIKI, and Morph2 datasets.
@@ -89,7 +89,7 @@ python TYY_MORPH_create_db.py --output morph_db_align.npz
 
 <img src="https://github.com/shamangary/SSR-Net/blob/master/merge_val_morph2.png" height="300"/>
 
-The experiments are done by randomly choosing 80% of the dataset as training and 20% of the dataset as validation(or testing). The details of the setting in each dataset is in the paper.
+The experiments are done by randomly choosing 80% of the dataset as training and 20% of the dataset as validation (or testing). The details of the setting in each dataset is in the paper.
 
 For MobileNet and DenseNet:
 ```
@@ -122,7 +122,7 @@ KERAS_BACKEND=tensorflow CUDA_VISIBLE_DEVICES='' python TYY_demo_mtcnn.py TGOP.m
 
 KERAS_BACKEND=tensorflow CUDA_VISIBLE_DEVICES='' python TYY_demo_mtcnn.py TGOP.mp4 '3'
 ```
-+ Note: You may choose different pre-trained models. However, the morph2 dataset is under a well controlled enviroment and it is much more smaller than IMDB and WIKI, the pre-trained models from morph2 may perform ly on the in-the-wild images. Therefore, IMDB or WIKI pre-trained models are recommended for in-the-wild images or video demo.
++ Note: You may choose different pre-trained models. However, the morph2 dataset is under a well controlled environment and it is much more smaller than IMDB and WIKI, the pre-trained models from morph2 may perform ly on the in-the-wild images. Therefore, IMDB or WIKI pre-trained models are recommended for in-the-wild images or video demo.
 
 + We use dlib detection and face alignment in the previous experimental section since the face data is well organized. However, dlib cannot provide satisfactory face detection for in-the-wild video. Therefore we use mtcnn as the detection process in the demo section.
 
@@ -134,7 +134,7 @@ Considering the face detection process (MTCNN or Dlib) is not fast enough for re
 cd ./demo
 KERAS_BACKEND=tensorflow CUDA_VISIBLE_DEVICES='' python TYY_demo_ssrnet_lbp_webcam.py
 ```
-+ Note that the covered region of face detection is different when you use MTCNN, Dlib, or LBP. You should choose similiar size between the inference and the training.
++ Note that the covered region of face detection is different when you use MTCNN, Dlib, or LBP. You should choose similar size between the inference and the training.
 + Also, the pre-trained models are mainly for the evaluation of the datasets. They are not really for the real-world images. You should always retrain the model by your own dataset. In webcam demo, we found that morph2 pre-trained model actually perform better than wiki pre-trained model. The discussion will be included in our future work.
 + If you are Asian, you might want to use the megaage_asian pre-trained model.
 + The Morph2 pre-trained model is good for webcam but the gender model is overfitted and not practical.
