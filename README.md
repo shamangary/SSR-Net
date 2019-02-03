@@ -153,3 +153,7 @@ sh run_ssrnet_gender.sh
 ```
 Note that the score can be between [0,1] and the 'V' inside SSR-Net can be changed into 1 for general propose regression.
 
+
+## Third Party Implementation
+MXNET:
+https://github.com/wayen820/gender_age_estimation_mxnet
