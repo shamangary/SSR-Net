@@ -8,6 +8,7 @@ import sys
 import timeit
 from moviepy.editor import *
 from mtcnn.mtcnn import MTCNN
+from keras import backend as K
 
 def draw_label(image, point, label, font=cv2.FONT_HERSHEY_SIMPLEX,
                font_scale=1, thickness=2):
@@ -18,7 +19,7 @@ def draw_label(image, point, label, font=cv2.FONT_HERSHEY_SIMPLEX,
 
 
 def main():
-    
+    K.set_learning_phase(0) # make sure its testing mode
     weight_file = "../pre-trained/wiki/ssrnet_3_3_3_64_1.0_1.0/ssrnet_3_3_3_64_1.0_1.0.h5"
 
     # for face detection
