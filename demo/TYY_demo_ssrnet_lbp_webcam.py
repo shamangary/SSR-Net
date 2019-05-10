@@ -6,7 +6,7 @@ from SSRNET_model import SSR_net, SSR_net_general
 import sys
 import timeit
 from moviepy.editor import *
-
+from keras import backend as K
 
 def draw_label(image, point, label, font=cv2.FONT_HERSHEY_SIMPLEX,
                font_scale=1, thickness=2):
@@ -80,7 +80,7 @@ def draw_results(detected,input_img,faces,ad,img_size,img_w,img_h,model,model_ge
     return input_img,time_network,time_plot
 
 def main():
-    
+    K.set_learning_phase(0) # make sure its testing mode
     weight_file = "../pre-trained/morph2/ssrnet_3_3_3_64_1.0_1.0/ssrnet_3_3_3_64_1.0_1.0.h5"
     weight_file_gender = "../pre-trained/wiki_gender_models/ssrnet_3_3_3_64_1.0_1.0/ssrnet_3_3_3_64_1.0_1.0.h5"
     
