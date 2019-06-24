@@ -31,7 +31,7 @@ https://github.com/shamangary/SSR-Net/blob/master/ijcai18_ssrnet_pdfa_2b.pdf
 **[Tsun-Yi Yang](http://shamangary.logdown.com/), [Yi-Husan Huang](https://github.com/b02901145), [Yen-Yu Lin](https://www.citi.sinica.edu.tw/pages/yylin/index_zh.html), [Pi-Cheng Hsiu](https://www.citi.sinica.edu.tw/pages/pchsiu/index_en.html), and [Yung-Yu Chuang](https://www.csie.ntu.edu.tw/~cyy/)**
 
 ## Abstract
-This paper presents a novel CNN model called Soft Stagewise Regression Network (SSR-Net) for age estimation from a single image with a compact model size. Inspired by DEX, we address age estimation by performing multi-class classification and then turning classification results into regression by calculating the expected values. SSR-Net takes a coarse-to-fine strategy and performs multi-class classification with multiple stages. Each stage is only responsible for refining the decision of the previous stage. Thus, each stage performs a task with few classes and requires few neurons, greatly reducing the model size. For addressing the quantization issue introduced by grouping ages into classes, SSR-Net assigns a dynamic range to each age class by allowing it to be shifted and scaled according to the input face image. Both the multi-stage strategy and the dynamic range are incorporated into the formulation of soft stagewise regression. A novel network architecture is proposed for carrying out soft stagewise regression. The resultant SSR-Net model is very compact and takes only **0.32 MB**. Despite of its compact size, SSR-Net’s performance approaches those of the state-of-the-art methods whose model sizes are more than 1500x larger.
+This paper presents a novel CNN model called Soft Stagewise Regression Network (SSR-Net) for age estimation from a single image with compact model size. Inspired by DEX, we address age estimation by performing multi-class classification and then turning classification results into regression by calculating the expected values. SSR-Net takes a coarse-to-fine strategy and performs multi-class classification with multiple stages. Each stage is only responsible for refining the decision of the previous stage. Thus, each stage performs a task with few classes and requires few neurons, greatly reducing the model size. For addressing the quantization issue introduced by grouping ages into classes, SSR-Net assigns a dynamic range to each age class by allowing it to be shifted and scaled according to the input face image. Both the multi-stage strategy and the dynamic range are incorporated into the formulation of soft stagewise regression. A novel network architecture is proposed for carrying out soft stagewise regression. The resultant SSR-Net model is very compact and takes only **0.32 MB**. Despite its compact size, SSR-Net’s performance approaches those of the state-of-the-art methods whose model sizes are more than 1500x larger.
 
 ## Platform
 + Keras
@@ -87,9 +87,9 @@ python TYY_IMDBWIKI_create_db.py --db wiki --output wiki_db.npz
 python TYY_MORPH_create_db.py --output morph2_db_align.npz
 ```
 
-### 2. Training and testing
+### 2. Training and Testing
 
-The experiments are done by randomly choosing 80% of the dataset as training and 20% of the dataset as validation (or testing). The details of the setting in each dataset is in the paper.
+The experiments are done by randomly choosing 80% of the dataset as training and 20% of the dataset as validation (or testing). The detailed settings of each dataset are in the paper.
 
 Run the following commands to train the SSR-Net model:
 ```
@@ -129,7 +129,7 @@ KERAS_BACKEND=tensorflow CUDA_VISIBLE_DEVICES='' python TYY_demo_mtcnn.py TGOP.m
 
 KERAS_BACKEND=tensorflow CUDA_VISIBLE_DEVICES='' python TYY_demo_mtcnn.py TGOP.mp4 '3'
 ```
-> **Note:** You may choose different pre-trained models. The Morph2 dataset is under a well controlled environment and it is much more smaller than the IMDB and WIKI datasets, therefore the pre-trained models from Morph2 may perform poorly on "in-the-wild" images. Hence, IMDB or WIKI pre-trained models are recommended for "in-the-wild images" and video demo.
+> **Note:** You may choose different pre-trained models. The Morph2 dataset is under a well-controlled environment and it is much smaller than the IMDB and WIKI datasets, therefore the pre-trained models from Morph2 may perform poorly on "in-the-wild" images. Hence, IMDB or WIKI pre-trained models are recommended for "in-the-wild images" and video demo.
 
 + We use DLib face detection and alignment in the previous experimental section since the face data is well organized. However, DLib cannot provide satisfactory face detection results for "in-the-wild" video data. Therefore, we use MTCNN as the detection process in this demo section.
 
@@ -143,9 +143,9 @@ cd ./demo
 KERAS_BACKEND=tensorflow CUDA_VISIBLE_DEVICES='' python TYY_demo_ssrnet_lbp_webcam.py
 ```
 
-> **Note:** The covered region of face detection is different when you use MTCNN, Dlib, or LBP. You should choose similar size between the inference and the training.
+> **Note:** The covered region of face detection is different when you use MTCNN, Dlib, or LBP. You should choose a similar size between the inference and the training.
 
->Also, the pre-trained models are mainly for the evaluation of datasets. They are not really for the real-world images. You should always retrain the model with your own dataset. In webcam demo, we found that the Morph2 pre-trained model actually performs better than the WIKI pre-trained model. The discussion will be included in our future work.
+>Also, the pre-trained models are mainly for the evaluation of datasets. They are not really for real-world images. You should always retrain the model with your own dataset. In webcam demo, we found that the Morph2 pre-trained model actually performs better than the WIKI pre-trained model. The discussion will be included in our future work.
 
 > If you are Asian, you might want to use the megaage_asian pre-trained model.
 
@@ -155,7 +155,7 @@ KERAS_BACKEND=tensorflow CUDA_VISIBLE_DEVICES='' python TYY_demo_ssrnet_lbp_webc
 
 **Training the gender model**
 
-We can reformulate binary classification problem into a regression problem, and SSR-Net can be used to predict the confidence.
+We can reformulate the binary classification problem into a regression problem, and SSR-Net can be used to predict the confidence.
 As an example, we provide a gender regression demo in this repository as an extension of the project.
 
 Training the gender network:
