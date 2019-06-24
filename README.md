@@ -1,9 +1,9 @@
 # SSR-Net
 **[IJCAI18] SSR-Net: A Compact Soft Stagewise Regression Network for Age Estimation**
-+ A real-time age estimation model with 0.32MB.
++ A real-time age estimation model (0.32MB)
 + Gender regression is also added!
-+ Megaage-Asian is provided in https://github.com/b02901145/SSR-Net_megaage-asian
-+ Coreml model (0.17MB) is provided in https://github.com/shamangary/Keras-to-coreml-multiple-inputs-example
++ Megaage-Asian implementation is provided in https://github.com/b02901145/SSR-Net_megaage-asian
++ Core ML model (0.17MB) is provided in https://github.com/shamangary/Keras-to-coreml-multiple-inputs-example
 
 **Code Author: Tsun-Yi Yang**
 
@@ -45,15 +45,12 @@ http://shamangary.logdown.com/posts/3009851
 + Anaconda
 + OpenCV
 + dlib
-+ MTCNN for demo
-```
-pip install mtcnn
-```
-+ MobileNet (already in the codes)
++ MTCNN (for running demo)
++ MobileNet (already included in this repository)
 https://github.com/fchollet/keras/blob/master/keras/applications/mobilenet.py
-+ DenseNet (already in the codes)
++ DenseNet (already included in this repository)
 https://github.com/titu1994/DenseNet
-+ Face alignment (already in the codes)
++ Face alignment (already included in this repository)
 https://github.com/xyfeng/average_portrait
 + Others
 ```
@@ -62,58 +59,68 @@ conda install -c cogsci pygame
 conda install -c conda-forge requests
 conda install -c conda-forge pytables
 ```
+To install all the dependencies, run the following command from the root folder of the project (*`$SSR_NET_ROOT`*) which contains `requirements.txt`:
+```
+pip install -r requirements.txt
+```
+
 ## Codes
 
-There are three different section of this project. 
+This project is broadly divided into the following four sections: 
 1. Data pre-processing
 2. Training and testing
-3. Video demo section
-We will go through the details in the following sections.
-
-This repository is for IMDB, WIKI, and Morph2 datasets.
+3. Running the Video Demo
+4. Extension
 
 
 ### 1. Data pre-processing
-+ Download IMDB-WIKI dataset (face only) from https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/.
-+ Morph2 dataset requires application form https://www.faceaginggroup.com/morph/
-+ Unzip them under './data'
-+ Run the following codes for dataset pre-processing.
+In this repository, we use the IMDB, WIKI and Morph2 datasets to train and test our model.
+Follow the following steps to set up the data for training the model
++ Download the IMDB-WIKI dataset (face only) from https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/
++ Download the Morph2 dataset (requires filling an application form) https://www.faceaginggroup.com/morph/
++ Unzip the data under `*$SSR_NET_ROOT*/data`
++ Run the following commands to pre-process the datasets
 ```
 cd ./data
-python TYY_IMDBWIKI_create_db.py --db imdb --output imdb.npz
-python TYY_IMDBWIKI_create_db.py --db wiki --output wiki.npz
-python TYY_MORPH_create_db.py --output morph_db_align.npz
+python TYY_IMDBWIKI_create_db.py --db imdb --output imdb_db.npz
+python TYY_IMDBWIKI_create_db.py --db wiki --output wiki_db.npz
+python TYY_MORPH_create_db.py --output morph2_db_align.npz
 ```
 
 ### 2. Training and testing
 
-<img src="https://github.com/shamangary/SSR-Net/blob/master/merge_val_morph2.png" height="300"/>
-
 The experiments are done by randomly choosing 80% of the dataset as training and 20% of the dataset as validation (or testing). The details of the setting in each dataset is in the paper.
 
-For MobileNet and DenseNet:
-```
-cd ./training_and_testing
-sh run_all.sh
-```
-For SSR-Net:
+Run the following commands to train the SSR-Net model:
 ```
 cd ./training_and_testing
 sh run_ssrnet.sh
 ```
-+ Note that we provide several different hyper-parameters combination in this code. If you only want a single hyper-parameter set, please alter the command inside "run_ssrnet.sh".
 
-**Plot the results:**
-For example, after the training of IMDB dataset, you want to plot the curve and the results.
-Copy "plot.sh", "ssrnet_plot.sh", and "plot_reg.py" into "./imdb_models".
-The following command should plot the results of the training process.
+For comparison purposes, you can run the following commands to train MobileNet and DenseNet models:
+```
+cd ./training_and_testing
+sh run_all.sh
+```
+<img src="https://github.com/shamangary/SSR-Net/blob/master/merge_val_morph2.png" height="300"/>
+
+> **Note:** We provide several different hyper-parameter combinations in this repository. If you only want a single hyper-parameter set, please alter the command inside `*$SSR_NET_ROOT*/training_and_testing/run_ssrnet.sh`.
+
+**Plotting the results:**
+Let's assume that after training the model using the IMDB dataset, you want to plot a curve to show the results.
+To do this, copy `plot.sh`, `ssrnet_plot.sh`, and `plot_reg.py` from `training_and_testing` into the `imdb_models` folder.
+Running the following commands should plot the results of the training process.
 ```
 sh plot.sh
 sh ssrnet_plot.sh
 ```
+>**Note:** If you face any permission issues while running any `.sh` files, just run the following command with the filename of the shell script before running the script itself:
+```
+chmod +x <filename.sh>
+```
 
-### 3. Video demo section
-Pure CPU demo command:
+### 3. Running the Video Demo
+To run the demo purely on CPU use the following command:
 ```
 cd ./demo
 KERAS_BACKEND=tensorflow CUDA_VISIBLE_DEVICES='' python TYY_demo_mtcnn.py TGOP.mp4
@@ -122,38 +129,43 @@ KERAS_BACKEND=tensorflow CUDA_VISIBLE_DEVICES='' python TYY_demo_mtcnn.py TGOP.m
 
 KERAS_BACKEND=tensorflow CUDA_VISIBLE_DEVICES='' python TYY_demo_mtcnn.py TGOP.mp4 '3'
 ```
-+ Note: You may choose different pre-trained models. However, the morph2 dataset is under a well controlled environment and it is much more smaller than IMDB and WIKI, the pre-trained models from morph2 may perform ly on the in-the-wild images. Therefore, IMDB or WIKI pre-trained models are recommended for in-the-wild images or video demo.
+> **Note:** You may choose different pre-trained models. The Morph2 dataset is under a well controlled environment and it is much more smaller than the IMDB and WIKI datasets, therefore the pre-trained models from Morph2 may perform poorly on "in-the-wild" images. Hence, IMDB or WIKI pre-trained models are recommended for "in-the-wild images" and video demo.
 
-+ We use dlib detection and face alignment in the previous experimental section since the face data is well organized. However, dlib cannot provide satisfactory face detection for in-the-wild video. Therefore we use mtcnn as the detection process in the demo section.
++ We use DLib face detection and alignment in the previous experimental section since the face data is well organized. However, DLib cannot provide satisfactory face detection results for "in-the-wild" video data. Therefore, we use MTCNN as the detection process in this demo section.
 
-### Real-time webcam demo
+**Running the Real-time Webcam Demo:**
 
-Considering the face detection process (MTCNN or Dlib) is not fast enough for real-time demo. We show a real-time webcam version by using lbp face detector.
+Considering the face detection process (MTCNN or Dlib) is not fast enough for a real-time demo, we show a real-time webcam demo by using LBP Face Detector.
 
+To run the Real-time Webcam Demo, run the following commands:
 ```
 cd ./demo
 KERAS_BACKEND=tensorflow CUDA_VISIBLE_DEVICES='' python TYY_demo_ssrnet_lbp_webcam.py
 ```
-+ Note that the covered region of face detection is different when you use MTCNN, Dlib, or LBP. You should choose similar size between the inference and the training.
-+ Also, the pre-trained models are mainly for the evaluation of the datasets. They are not really for the real-world images. You should always retrain the model by your own dataset. In webcam demo, we found that morph2 pre-trained model actually perform better than wiki pre-trained model. The discussion will be included in our future work.
-+ If you are Asian, you might want to use the megaage_asian pre-trained model.
-+ The Morph2 pre-trained model is good for webcam but the gender model is overfitted and not practical.
+
+> **Note:** The covered region of face detection is different when you use MTCNN, Dlib, or LBP. You should choose similar size between the inference and the training.
+
+>Also, the pre-trained models are mainly for the evaluation of datasets. They are not really for the real-world images. You should always retrain the model with your own dataset. In webcam demo, we found that the Morph2 pre-trained model actually performs better than the WIKI pre-trained model. The discussion will be included in our future work.
+
+> If you are Asian, you might want to use the megaage_asian pre-trained model.
+
+> The Morph2 pre-trained model is good for webcam but the gender model is overfitted and not practical.
 
 ### 4. Extension
 
-### Training the gender model
+**Training the gender model**
 
-We can reformulate binary classification problem into regression problem, and SSR-Net can be used to predict the confidence.
-For example, we provide gender regression and demo in the code for the extension.
+We can reformulate binary classification problem into a regression problem, and SSR-Net can be used to predict the confidence.
+As an example, we provide a gender regression demo in this repository as an extension of the project.
 
 Training the gender network:
 ```
 cd ./training_and_testing
 sh run_ssrnet_gender.sh
 ```
-Note that the score can be between [0,1] and the 'V' inside SSR-Net can be changed into 1 for general propose regression.
+>**Note:** The score can be between [0,1] and the 'V' inside SSR-Net can be changed into 1 for general propose regression.
 
 
-## Third Party Implementation
-MXNET:
-https://github.com/wayen820/gender_age_estimation_mxnet
+## Third Party Re-Implementation
+|MXNET| https://github.com/wayen820/gender_age_estimation_mxnet|
+|-----|---------------------|
