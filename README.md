@@ -7,7 +7,7 @@
 
 **Code Author: Tsun-Yi Yang**
 
-**Last update: 2018/08/06 (Adding megaage_asian training. Typo fixed.)**
+**Last update: 2019/09/19 (Renew the morph2 dataset link)**
 
 
 <img src="https://media.giphy.com/media/ygBDe4FIU4Cybbfh2N/giphy.gif" height="240"/> <img src="https://media.giphy.com/media/bZvHMOp2hBsusr96fa/giphy.gif" height="240"/> 
@@ -75,7 +75,9 @@ This repository is for IMDB, WIKI, and Morph2 datasets.
 
 ### 1. Data pre-processing
 + Download IMDB-WIKI dataset (face only) from https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/.
-+ Morph2 dataset requires application form https://www.faceaginggroup.com/morph/
++ Morph2 dataset requires application form 
+https://www.faceaginggroup.com/?page_id=1414
+https://ebill.uncw.edu/C20231_ustores/web/classic/product_detail.jsp?PRODUCTID=8
 + Unzip them under './data'
 + Run the following codes for dataset pre-processing.
 ```
