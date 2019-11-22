@@ -157,8 +157,11 @@ Note that the score can be between [0,1] and the 'V' inside SSR-Net can be chang
 
 
 ## Third Party Implementation
-MXNET:
++ MXNET:
 https://github.com/wayen820/gender_age_estimation_mxnet
-Pytorch:
+
++ Pytorch:
 https://github.com/oukohou/SSR_Net_Pytorch
+
++ Pytorch:
 https://github.com/CrazySummerday/SSR-Net
